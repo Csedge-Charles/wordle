@@ -115,7 +115,7 @@
     </div>
 
     <form action="{{ url }}" method="POST">
-
+    {% if first == True%}
     <div id="firstrow">
         <input type="text" class="text1" name="text1">
         <input type="text" class="text2" name="text2">
@@ -124,6 +124,9 @@
         <input type="text" class="text5" name="text5">
     </div>
 
+    {% endif %}
+
+    {% if second == True%}
     <div id="secondrow" style="transform: translate(0px, 74px);">
         <input type="text" class="text1" name="text1">
         <input type="text" class="text2" name="text2">
@@ -131,10 +134,11 @@
         <input type="text" class="text4" name="text4">
         <input type="text" class="text5" name="text5">
     </div>
+    {% endif %}
 
 
 
-
+    {% if third == True%}
     <div id="thirdrow" style="transform: translate(0px, 151px);">
         <input type="text" class="text1" name="text1">
         <input type="text" class="text2" name="text2">
@@ -142,14 +146,20 @@
         <input type="text" class="text4" name="text4">
         <input type="text" class="text5" name="text5">
     </div>
+    {% endif %}
 
+
+    {% if fourth == True%}
     <div id="fourthrow" style="transform: translate(0px, 230px);">
         <input type="text" class="text1" name="text1">
         <input type="text" class="text2" name="text2">
         <input type="text" class="text3" name="text3">
         <input type="text" class="text4" name="text4">
         <input type="text" class="text5" name="text5">
-    </div> 
+    </div>
+    {% endif %}
+    
+    {% if fifth == True%}
 
     <div id="fifthrow" style="transform: translate(0px, 305px);">
         <input type="text" class="text1" name="text1">
@@ -158,6 +168,9 @@
         <input type="text" class="text4" name="text4">
         <input type="text" class="text5" name="text5">
     </div> 
+    {% endif %}
+
+    {% if sixth == True%}
 
     <div id="sixthrow" style="transform: translate(0px, 382px)";>
         <input type="text" class="text1" name="text1">
@@ -166,6 +179,9 @@
         <input type="text" class="text4" name="text4">
         <input type="text" class="text5" name="text5">
     </div>
+    {% endif %}
+
+    <input type="submit" name="submit" id="submit">
 
 
 </form>
