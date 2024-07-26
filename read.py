@@ -41,6 +41,11 @@ common_list = [
     "Sweet", "Table", "Teach", "Thank", "Theme", "Thick", "Think", "Throw", "Title", "Touch",
     "Tower", "Train", "Trust", "Union", "Value", "Visit", "Voice", "Waste", "Watch", "Whole"
 ]
+new_list = []
+for i in common_list:
+    new_list.append(i.lower())
+
+
 
 def string(x):
     y = ''

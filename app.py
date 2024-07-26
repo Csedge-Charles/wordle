@@ -3,9 +3,9 @@ import read
 import random
 
 word_list = read.word_list
-common_list = read.common_list
+common_list = read.new_list
 
-word = 'truth' #random.choice(common_list)
+word = random.choice(common_list)
 
 
 
@@ -36,6 +36,11 @@ def first():
         letter3 = flask.request.form['text3']
         letter4 = flask.request.form['text4']
         letter5 = flask.request.form['text5']
+        letter1.lower()
+        letter2.lower()
+        letter3.lower()
+        letter4.lower()
+        letter5.lower()
         
         
         
@@ -80,6 +85,15 @@ def first():
             scramble = list(word)
             scramble.sort()
             scramble = read.string(scramble)
+            nice = True
+            if color1 == 'g':
+                if letter1 == letter2 and f'{letter1}{letter2}' not in scramble:
+                    color2 = 'b'
+                    nice = False
+            if color2 == 'g':
+                if letter1 == letter2 and f'{letter1}{letter2}' not in scramble:
+                    color1 = 'b'
+                    nice = False
             
             if letter1 == letter2 and f'{letter1}{letter2}' not in scramble:
                 color2 = 'b'
@@ -139,6 +153,11 @@ def second():
         letter23 = flask.request.form['text3']
         letter24 = flask.request.form['text4']
         letter25 = flask.request.form['text5']
+        letter21.lower()
+        letter22.lower()
+        letter23.lower()
+        letter24.lower()
+        letter25.lower()
 
         if f'{letter21}{letter22}{letter23}{letter24}{letter25}' not in word_list:
             return flask.render_template('index.html', first=False, second=True, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=False, fourth4=False, fifth5=False, sixth6=False
@@ -238,6 +257,11 @@ def third():
         letter33 = flask.request.form['text3']
         letter34 = flask.request.form['text4']
         letter35 = flask.request.form['text5']
+        letter31.lower()
+        letter32.lower()
+        letter33.lower()
+        letter34.lower()
+        letter35.lower()
 
         if f'{letter31}{letter32}{letter33}{letter34}{letter35}' not in word_list:
             return flask.render_template('index.html', first=False, second=False, third=True, fourth=False, fifth=False, sixth=False, second2=True, third3=True,
@@ -341,6 +365,11 @@ def fourth():
         letter43 = flask.request.form['text3']
         letter44 = flask.request.form['text4']
         letter45 = flask.request.form['text5']
+        letter41.lower()
+        letter42.lower()
+        letter43.lower()
+        letter44.lower()
+        letter45.lower()
 
         if f'{letter41}{letter42}{letter43}{letter44}{letter45}' not in word_list:
             return flask.render_template('index.html', first=False, second=False, third=False, fourth=True, fifth=False, sixth=False, second2=True, third3=True, fourth4=True,
@@ -449,8 +478,13 @@ def fifth():
         letter53 = flask.request.form['text3']
         letter54 = flask.request.form['text4']
         letter55 = flask.request.form['text5']
+        letter51.lower()
+        letter52.lower()
+        letter53.lower()
+        letter54.lower()
+        letter55.lower()
         if f'{letter51}{letter52}{letter53}{letter54}{letter55}' not in word_list:
-            return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=True, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True,
+            return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=True, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, 
                                  letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45
                                  , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5, 
                                  letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
@@ -557,6 +591,11 @@ def sixth():
         letter63 = flask.request.form['text3']
         letter64 = flask.request.form['text4']
         letter65 = flask.request.form['text5']
+        letter61.lower()
+        letter62.lower()
+        letter63.lower()
+        letter64.lower()
+        letter65.lower()
         if f'{letter61}{letter62}{letter63}{letter64}{letter65}' not in word_list:
             return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=True, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True,
                                  letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45
@@ -646,7 +685,7 @@ def sixth():
 @app.route('/winning')
 
 def winning():
-    return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, sixth6=True, seventh7=True,
+    return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, sixth6=True, seventh7=True, seventh=True,
                                  letter51=letter51, letter52=letter52, letter53=letter53, letter54=letter54, letter55=letter55,
                                  letter61=letter61, letter62=letter62, letter63=letter63, letter64=letter64, letter65=letter65
                                  , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5

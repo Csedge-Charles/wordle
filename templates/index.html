@@ -539,6 +539,18 @@
         <input type="text" class="text5" name="text5" maxlength="1">
     </div>
 {% endif %}
+
+{% if seventh == True%}
+
+    <div id="seventhrow" style="transform: translate(0px, 1002px); background-color: black;" >
+        <input type="text" class="text1" name="text1" maxlength="1">
+        <input type="text" class="text2" name="text2" maxlength="1">
+        <input type="text" class="text3" name="text3" maxlength="1">
+        <input type="text" class="text4" name="text4" maxlength="1">
+        <input type="text" class="text5" name="text5" maxlength="1">
+    </div>
+{% endif %}
+
     
     <input type="submit" name="submit" id="submit">
 
@@ -599,12 +611,12 @@
 
 
 {% if seventh7 == True %}
-<div id="letterrow6" style="font-size:30px; transform: translate(0px, -1215px);">
-    <p style="transform: translate(525px, -2005px);">A</p>
-    <p style="transform: translate(605px, -2070px);">B</p>
-    <p style="transform: translate(685px, -2135px);">B</p>
-    <p style="transform: translate(765px, -2200px);">B</p>
-    <p style="transform: translate(845px, -2265px);">B</p>     
+<div id="letterrow6" style="font-size:30px; transform: translate(0px, -1215px); color:white; font-family: Arial, Helvetica, sans-serif;">
+    <p style="transform: translate(525px, -2005px); text-transform: uppercase;">{{letter61}}</p>
+    <p style="transform: translate(605px, -2070px); text-transform: uppercase;">{{letter62}}</p>
+    <p style="transform: translate(685px, -2135px); text-transform: uppercase;">{{letter63}}</p>
+    <p style="transform: translate(765px, -2200px); text-transform: uppercase;">{{letter64}}</p>
+    <p style="transform: translate(845px, -2265px); text-transform: uppercase;">{{letter65}}</p>     
 </div> 
 {% endif %}
 

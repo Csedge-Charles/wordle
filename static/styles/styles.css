@@ -54,7 +54,7 @@
     font-size: 30px;
     width:30px;
     height:50px;
-    background-color: white;
+    background-color: transparent;
     border-color:transparent;
     transform: translate(519px, -1872px);
     text-transform:uppercase;
@@ -65,7 +65,7 @@
     font-size: 30px;
     width:30px;
     height:50px;
-    background-color: white;
+    background-color: transparent;
     border-color:transparent;
     text-transform:uppercase;
     transform: translate(559px, -1872px);
@@ -76,7 +76,7 @@
     font-size: 30px;
     width:30px;
     height:50px;
-    background-color: white;
+    background-color: transparent;
     border-color:transparent;
     text-transform:uppercase;
     transform: translate(599px, -1872px);
@@ -87,7 +87,7 @@
     width:30px;
     height:50px;
     text-transform:uppercase;
-    background-color: white;
+    background-color: transparent;
     border-color:transparent;
     transform: translate(639px, -1872px);
 }
@@ -97,7 +97,7 @@
     width:30px;
     height:50px;
     text-transform:uppercase;
-    background-color: white;
+    background-color: transparent;
     border-color:transparent;
     transform: translate(679px, -1872px);
 }
