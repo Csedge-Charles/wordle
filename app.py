@@ -15,6 +15,7 @@ app = flask.Flask(__name__)
 
 
 def first():
+    global word
     if flask.request.method == 'POST':
         global letter1
         global letter2
@@ -36,11 +37,13 @@ def first():
         letter3 = flask.request.form['text3']
         letter4 = flask.request.form['text4']
         letter5 = flask.request.form['text5']
-        letter1.lower()
-        letter2.lower()
-        letter3.lower()
-        letter4.lower()
-        letter5.lower()
+        letter1 = letter1.lower()
+        letter2 = letter2.lower()
+        letter3 = letter3.lower()
+        letter4 = letter4.lower()
+        letter5 = letter5.lower()
+
+        print(f'{letter1}{letter2}{letter3}{letter4}{letter5}')
         
             
         
@@ -141,10 +144,9 @@ def first():
                     color5 = 'b'
                     
             if f'{letter1}{letter2}{letter3}{letter4}{letter5}' == word:
-                return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, 
-                                         fifth=False, sixth=False, second2=True, third3=False, fourth4=False, fifth5=False, sixth6=False, seventh=True
-                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5,
-                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5)
+                global winning
+                winning = 1
+                return flask.redirect('/winnings', code=302)
                 
             
                 
@@ -183,11 +185,11 @@ def second():
         letter23 = flask.request.form['text3']
         letter24 = flask.request.form['text4']
         letter25 = flask.request.form['text5']
-        letter21.lower()
-        letter22.lower()
-        letter23.lower()
-        letter24.lower()
-        letter25.lower()
+        letter21 = letter21.lower()
+        letter22 = letter22.lower()
+        letter23 = letter23.lower()
+        letter24 = letter24.lower()
+        letter25 = letter25.lower()
         
 
         if f'{letter21}{letter22}{letter23}{letter24}{letter25}' not in word_list:
@@ -291,11 +293,9 @@ def second():
                     color25 = 'b'
                     
             if f'{letter21}{letter22}{letter23}{letter24}{letter25}' == word:
-                return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, seventh=True,
-                                 letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25
-                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5, 
-                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
-                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,)
+                global winning
+                winning = 2
+                return flask.redirect('/winnings', code=302)
 
 
             return flask.redirect('/third')
@@ -327,11 +327,11 @@ def third():
         letter33 = flask.request.form['text3']
         letter34 = flask.request.form['text4']
         letter35 = flask.request.form['text5']
-        letter31.lower()
-        letter32.lower()
-        letter33.lower()
-        letter34.lower()
-        letter35.lower()
+        letter31 = letter31.lower()
+        letter32 = letter32.lower()
+        letter33 = letter33.lower()
+        letter34 = letter34.lower()
+        letter35 = letter35.lower()
 
         if f'{letter31}{letter32}{letter33}{letter34}{letter35}' not in word_list:
             return flask.render_template('index.html', first=False, second=False, third=True, fourth=False, fifth=False, sixth=False, second2=True, third3=True,
@@ -434,13 +434,9 @@ def third():
                 if letter34 == letter35 and f'{letter34}{letter35}' not in scramble:
                     color35 = 'b'
             if f'{letter31}{letter32}{letter33}{letter34}{letter35}' == word:
-                return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, seventh=True,
-                                 letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
-                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5
-                                 , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
-                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
-                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
-                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,)
+                global winning
+                winning = 3
+                return flask.redirect('/winnings', code=302)
                 
                 
             
@@ -475,11 +471,11 @@ def fourth():
         letter43 = flask.request.form['text3']
         letter44 = flask.request.form['text4']
         letter45 = flask.request.form['text5']
-        letter41.lower()
-        letter42.lower()
-        letter43.lower()
-        letter44.lower()
-        letter45.lower()
+        letter41 = letter41.lower()
+        letter42 = letter42.lower()
+        letter43 = letter43.lower()
+        letter44 = letter44.lower()
+        letter45 = letter45.lower()
 
         if f'{letter41}{letter42}{letter43}{letter44}{letter45}' not in word_list:
             return flask.render_template('index.html', first=False, second=False, third=False, fourth=True, fifth=False, sixth=False, second2=True, third3=True, fourth4=True,
@@ -584,15 +580,9 @@ def fourth():
                     color45 = 'b'
                     
             if f'{letter41}{letter42}{letter43}{letter44}{letter45}' == word:
-                return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, seventh=True,
-                                 letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45
-                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5, 
-                                 letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
-                                 , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
-                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
-                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
-                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
-                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45)
+                global winning
+                winning = 4
+                return flask.redirect('/winnings', code=302)
                     
             
                 
@@ -633,11 +623,11 @@ def fifth():
         letter53 = flask.request.form['text3']
         letter54 = flask.request.form['text4']
         letter55 = flask.request.form['text5']
-        letter51.lower()
-        letter52.lower()
-        letter53.lower()
-        letter54.lower()
-        letter55.lower()
+        letter51 = letter51.lower()
+        letter52 = letter52.lower()
+        letter53 = letter53.lower()
+        letter54 = letter54.lower()
+        letter55 = letter55.lower()
         if f'{letter51}{letter52}{letter53}{letter54}{letter55}' not in word_list:
             return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=True, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, 
                                  letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45
@@ -742,17 +732,9 @@ def fifth():
                     color55 = 'b'
                     
             if f'{letter51}{letter52}{letter53}{letter54}{letter55}' == word:
-                return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, sixth6=True, seventh=True,
-                                 letter51=letter51, letter52=letter52, letter53=letter53, letter54=letter54, letter55=letter55
-                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5
-                                 , letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45,
-                                 letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
-                                 , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
-                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
-                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
-                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
-                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,
-                                 color51=color51, color52=color52, color53=color53, color54=color54, color55=color55,)
+                global winning
+                winning = 5
+                return flask.redirect('/winnings', code=302)
                 
             
 
@@ -791,11 +773,11 @@ def sixth():
         letter63 = flask.request.form['text3']
         letter64 = flask.request.form['text4']
         letter65 = flask.request.form['text5']
-        letter61.lower()
-        letter62.lower()
-        letter63.lower()
-        letter64.lower()
-        letter65.lower()
+        letter61 = letter61.lower()
+        letter62 = letter62.lower()
+        letter63 = letter63.lower()
+        letter64 = letter64.lower()
+        letter65 = letter65.lower()
         if f'{letter61}{letter62}{letter63}{letter64}{letter65}' not in word_list:
             return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=True, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True,
                                  letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45
@@ -901,19 +883,9 @@ def sixth():
                     color65 = 'b'
                     
             if f'{letter61}{letter62}{letter63}{letter64}{letter65}' == word:
-                return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, sixth6=True, seventh7=True, seventh=True,
-                                 letter51=letter51, letter52=letter52, letter53=letter53, letter54=letter54, letter55=letter55,
-                                 letter61=letter61, letter62=letter62, letter63=letter63, letter64=letter64, letter65=letter65
-                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5
-                                 , letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45,
-                                 letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
-                                 , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
-                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
-                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
-                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
-                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,
-                                 color51=color51, color52=color52, color53=color53, color54=color54, color55=color55,
-                                 color61=color61, color62=color62, color63=color63, color64=color64, color65=color65)
+                global winning
+                winning = 6
+                return flask.redirect('/winnings', code=302)
 
             return flask.redirect('/winning')
         
@@ -929,9 +901,16 @@ def sixth():
                                  color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,
                                  color51=color51, color52=color52, color53=color53, color54=color54, color55=color55,)
     
-@app.route('/winning')
+@app.route('/winning', methods = ['GET', 'POST'])
 
 def winning():
+    global word
+    x = word[0].upper()
+    word = f'{x}{word[1]}{word[2]}{word[3]}{word[4]}'
+    if flask.request.method == 'POST':
+            word = random.choice(common_list)
+            return flask.redirect('/', code=302)
+    
     return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, sixth6=True, seventh7=True, seventh=True,
                                  letter51=letter51, letter52=letter52, letter53=letter53, letter54=letter54, letter55=letter55,
                                  letter61=letter61, letter62=letter62, letter63=letter63, letter64=letter64, letter65=letter65
@@ -945,6 +924,89 @@ def winning():
                                  color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,
                                  color51=color51, color52=color52, color53=color53, color54=color54, color55=color55,
                                  color61=color61, color62=color62, color63=color63, color64=color64, color65=color65, sad=True, word=word)
+
+@app.route('/winnings', methods=['POST', 'GET'])
+
+def winnings():
+    global word
+    if winning == 1:
+        if flask.request.method == 'POST':
+            word = random.choice(common_list)
+            return flask.redirect('/', code=302)
+        return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, 
+                                         fifth=False, sixth=False, second2=True, third3=False, fourth4=False, fifth5=False, sixth6=False, seventh=True
+                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5,
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5, happy=True)
+    if winning == 2:
+        if flask.request.method == 'POST':
+            word = random.choice(common_list)
+            return flask.redirect('/', code=302)
+        return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, seventh=True,
+                                 letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25
+                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5, 
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
+                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25, happy=True)
+    if winning == 3:
+        if flask.request.method == 'POST':
+            word = random.choice(common_list)
+            return flask.redirect('/', code=302)
+        return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, seventh=True,
+                                 letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
+                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5
+                                 , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
+                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
+                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35, happy=True)
+    if winning == 4:
+        if flask.request.method == 'POST':
+            word = random.choice(common_list)
+            return flask.redirect('/', code=302)
+        return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, seventh=True,
+                                 letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45
+                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5, 
+                                 letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
+                                 , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
+                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
+                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
+                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45, happy=True)
+    if winning == 5:
+        if flask.request.method == 'POST':
+            word = random.choice(common_list)
+            return flask.redirect('/', code=302)
+        return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, sixth6=True, seventh=True,
+                                 letter51=letter51, letter52=letter52, letter53=letter53, letter54=letter54, letter55=letter55
+                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5
+                                 , letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45,
+                                 letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
+                                 , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
+                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
+                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
+                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,
+                                 color51=color51, color52=color52, color53=color53, color54=color54, color55=color55, happy=True)
+    if winning == 6:
+        if flask.request.method == 'POST':
+            word = random.choice(common_list)
+            return flask.redirect('/', code=302)
+        return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, sixth6=True, seventh7=True, seventh=True,
+                                 letter51=letter51, letter52=letter52, letter53=letter53, letter54=letter54, letter55=letter55,
+                                 letter61=letter61, letter62=letter62, letter63=letter63, letter64=letter64, letter65=letter65
+                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5
+                                 , letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45,
+                                 letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
+                                 , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
+                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
+                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
+                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,
+                                 color51=color51, color52=color52, color53=color53, color54=color54, color55=color55,
+                                 color61=color61, color62=color62, color63=color63, color64=color64, color65=color65, happy=True)
+        
+        
+        
+
+
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)

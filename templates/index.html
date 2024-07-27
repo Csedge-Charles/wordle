@@ -552,7 +552,7 @@
 {% endif %}
 
     
-    <input type="submit" name="submit" id="submit">
+    <input type="submit" name="submit" id="submit" value="submit">
 
 
 
@@ -619,12 +619,17 @@
     <p style="transform: translate(845px, -2265px); text-transform: uppercase;">{{letter65}}</p>     
 </div> 
 {% endif %}
+{% if clear == True %}
 
 
+{% endif %}
 </form>
 
 {% if sad == True %}
 <p style="transform: translate(580px, -4020px); font-size:30px; color:rgb(0, 0, 0);">The Word is {{ word }}</p>
+{% endif %}
+{% if happy == True %}
+<p style="transform: translate(580px, -4020px); font-size:30px; color:rgb(0, 0, 0);">You Win!</p>
 {% endif %}
 </body>
 </html>
