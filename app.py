@@ -42,10 +42,13 @@ def first():
         letter4.lower()
         letter5.lower()
         
+            
+        
         
         
         if f'{letter1}{letter2}{letter3}{letter4}{letter5}' not in word_list:
-            return flask.render_template('index.html', first=True, second=False, third=False, fourth=False, fifth=False, sixth=False)
+            return flask.render_template('index.html', first=True, second=False, third=False, fourth=False, fifth=False, sixth=False,
+                                         value1=letter1, value2=letter2, value3=letter3, value4=letter4, value5=letter5)
         else:
             if letter1 in word and letter1 == word[0]:
                 color1 = 'g'
@@ -85,36 +88,63 @@ def first():
             scramble = list(word)
             scramble.sort()
             scramble = read.string(scramble)
-            nice = True
-            if color1 == 'g':
-                if letter1 == letter2 and f'{letter1}{letter2}' not in scramble:
-                    color2 = 'b'
-                    nice = False
             if color2 == 'g':
                 if letter1 == letter2 and f'{letter1}{letter2}' not in scramble:
                     color1 = 'b'
-                    nice = False
+            else:
+                if letter1 == letter2 and f'{letter1}{letter2}' not in scramble:
+                    color2 = 'b'
+                    
+            if color3 == 'g':
+                if letter1 == letter3 and f'{letter1}{letter3}' not in scramble:
+                    color1 = 'b'
+                if letter2 == letter3 and f'{letter2}{letter3}' not in scramble:
+                    color2 = 'b'
+            else:
+                if letter1 == letter3 and f'{letter1}{letter3}' not in scramble:
+                    color3 = 'b'
+                if letter2 == letter3 and f'{letter2}{letter3}' not in scramble:
+                    color3 = 'b'
             
-            if letter1 == letter2 and f'{letter1}{letter2}' not in scramble:
-                color2 = 'b'
-            if letter1 == letter3 and f'{letter1}{letter3}' not in scramble:
-                color3 = 'b'
-            if letter1 == letter4 and f'{letter1}{letter4}' not in scramble:
-                color4 = 'b'
-            if letter1 == letter5 and f'{letter1}{letter5}' not in scramble:
-                color5 = 'b'
-            if letter2 == letter3 and f'{letter2}{letter3}' not in scramble:
-                color3 = 'b'
-            if letter2 == letter4 and f'{letter2}{letter4}' not in scramble:
-                color4 = 'b'
-            if letter2 == letter5 and f'{letter2}{letter5}' not in scramble:
-                color5 = 'b'
-            if letter3 == letter4 and f'{letter3}{letter4}' not in scramble:
-                color4 = 'b'
-            if letter3 == letter5 and f'{letter3}{letter5}' not in scramble:
-                color5 = 'b'
-            if letter4 == letter5 and f'{letter4}{letter5}' not in scramble:
-                color5 = 'b'
+            if color4 == 'g':
+                if letter1 == letter4 and f'{letter1}{letter4}' not in scramble:
+                    color1 = 'b'
+                if letter2 == letter4 and f'{letter2}{letter4}' not in scramble:
+                    color2 = 'b'
+                if letter3 == letter4 and f'{letter3}{letter4}' not in scramble:
+                    color3 = 'b'
+            else:
+                if letter1 == letter4 and f'{letter1}{letter4}' not in scramble:
+                    color4 = 'b'
+                if letter2 == letter4 and f'{letter2}{letter4}' not in scramble:
+                    color4 = 'b'
+                if letter3 == letter4 and f'{letter3}{letter4}' not in scramble:
+                    color4 = 'b'
+            
+            if color5 == 'g':
+                if letter1 == letter5 and f'{letter1}{letter5}' not in scramble:
+                    color1 = 'b'
+                if letter2 == letter5 and f'{letter2}{letter5}' not in scramble:
+                    color2 = 'b'  
+                if letter3 == letter5 and f'{letter3}{letter5}' not in scramble:
+                    color3 = 'b'
+                if letter4 == letter5 and f'{letter4}{letter5}' not in scramble:
+                    color4 = 'b'
+            else:       
+                if letter1 == letter5 and f'{letter1}{letter5}' not in scramble:
+                    color5 = 'b'
+                if letter2 == letter5 and f'{letter2}{letter5}' not in scramble:
+                    color5 = 'b'
+                if letter3 == letter5 and f'{letter3}{letter5}' not in scramble:
+                    color5 = 'b'
+                if letter4 == letter5 and f'{letter4}{letter5}' not in scramble:
+                    color5 = 'b'
+                    
+            if f'{letter1}{letter2}{letter3}{letter4}{letter5}' == word:
+                return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, 
+                                         fifth=False, sixth=False, second2=True, third3=False, fourth4=False, fifth5=False, sixth6=False, seventh=True
+                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5,
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5)
                 
             
                 
@@ -158,11 +188,13 @@ def second():
         letter23.lower()
         letter24.lower()
         letter25.lower()
+        
 
         if f'{letter21}{letter22}{letter23}{letter24}{letter25}' not in word_list:
             return flask.render_template('index.html', first=False, second=True, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=False, fourth4=False, fifth5=False, sixth6=False
                                  , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5,
-                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5)
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
+                                 value21=letter21, value22=letter22, value23=letter23, value24=letter24, value25=letter25)
 
         else:
         
@@ -206,26 +238,64 @@ def second():
             scramble.sort()
             scramble = read.string(scramble)
             
-            if letter21 == letter22 and f'{letter21}{letter22}' not in scramble:
-                color22 = 'b'
-            if letter21 == letter23 and f'{letter21}{letter23}' not in scramble:
-                color23 = 'b'
-            if letter21 == letter24 and f'{letter21}{letter24}' not in scramble:
-                color24 = 'b'
-            if letter21 == letter25 and f'{letter21}{letter25}' not in scramble:
-                color25 = 'b'
-            if letter22 == letter23 and f'{letter22}{letter23}' not in scramble:
-                color23 = 'b'
-            if letter22 == letter24 and f'{letter22}{letter24}' not in scramble:
-                color24 = 'b'
-            if letter22 == letter25 and f'{letter22}{letter25}' not in scramble:
-                color25 = 'b'
-            if letter23 == letter24 and f'{letter23}{letter24}' not in scramble:
-                color24 = 'b'
-            if letter23 == letter25 and f'{letter23}{letter25}' not in scramble:
-                color25 = 'b'
-            if letter24 == letter25 and f'{letter24}{letter25}' not in scramble:
-                color25 = 'b'
+            if color22 == 'g':
+                if letter21 == letter22 and f'{letter21}{letter22}' not in scramble:
+                    color21 = 'b'
+            else:
+                if letter21 == letter22 and f'{letter21}{letter22}' not in scramble:
+                    color22 = 'b'
+                    
+            if color23 == 'g':
+                if letter21 == letter23 and f'{letter21}{letter23}' not in scramble:
+                    color21 = 'b'
+                if letter22 == letter23 and f'{letter22}{letter23}' not in scramble:
+                    color22 = 'b'
+            else:
+                if letter21 == letter23 and f'{letter21}{letter23}' not in scramble:
+                    color23 = 'b'
+                if letter22 == letter23 and f'{letter22}{letter23}' not in scramble:
+                    color23 = 'b'
+            
+            if color24 == 'g':
+                if letter21 == letter24 and f'{letter21}{letter24}' not in scramble:
+                    color21 = 'b'
+                if letter22 == letter24 and f'{letter22}{letter24}' not in scramble:
+                    color22 = 'b'
+                if letter23 == letter24 and f'{letter23}{letter24}' not in scramble:
+                    color23 = 'b'
+            else:
+                if letter21 == letter24 and f'{letter21}{letter24}' not in scramble:
+                    color24 = 'b'
+                if letter22 == letter24 and f'{letter22}{letter24}' not in scramble:
+                    color24 = 'b'
+                if letter23 == letter24 and f'{letter23}{letter24}' not in scramble:
+                    color24 = 'b'
+            
+            if color25 == 'g':
+                if letter21 == letter25 and f'{letter21}{letter25}' not in scramble:
+                    color21 = 'b'
+                if letter22 == letter25 and f'{letter22}{letter25}' not in scramble:
+                    color22 = 'b'  
+                if letter23 == letter25 and f'{letter23}{letter25}' not in scramble:
+                    color23 = 'b'
+                if letter24 == letter25 and f'{letter24}{letter25}' not in scramble:
+                    color24 = 'b'
+            else:       
+                if letter21 == letter25 and f'{letter21}{letter25}' not in scramble:
+                    color25 = 'b'
+                if letter22 == letter25 and f'{letter22}{letter25}' not in scramble:
+                    color25 = 'b'
+                if letter23 == letter25 and f'{letter23}{letter25}' not in scramble:
+                    color25 = 'b'
+                if letter24 == letter25 and f'{letter24}{letter25}' not in scramble:
+                    color25 = 'b'
+                    
+            if f'{letter21}{letter22}{letter23}{letter24}{letter25}' == word:
+                return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, seventh=True,
+                                 letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25
+                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5, 
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
+                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,)
 
 
             return flask.redirect('/third')
@@ -268,7 +338,8 @@ def third():
                                  letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25
                                  , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5, 
                                  color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
-                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,)
+                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
+                                 value31=letter31, value32=letter32, value33=letter33, value34=letter34, value35=letter35)
 
         else:
             if letter31 in word and letter31 == word[0]:
@@ -311,26 +382,65 @@ def third():
             scramble.sort()
             scramble = read.string(scramble)
             
-            if letter31 == letter32 and f'{letter31}{letter32}' not in scramble:
-                color32 = 'b'
-            if letter31 == letter33 and f'{letter31}{letter33}' not in scramble:
-                color33 = 'b'
-            if letter31 == letter34 and f'{letter31}{letter34}' not in scramble:
-                color34 = 'b'
-            if letter31 == letter35 and f'{letter31}{letter35}' not in scramble:
-                color35 = 'b'
-            if letter32 == letter33 and f'{letter32}{letter33}' not in scramble:
-                color33 = 'b'
-            if letter32 == letter34 and f'{letter32}{letter34}' not in scramble:
-                color34 = 'b'
-            if letter32 == letter35 and f'{letter32}{letter35}' not in scramble:
-                color35 = 'b'
-            if letter33 == letter34 and f'{letter33}{letter34}' not in scramble:
-                color34 = 'b'
-            if letter33 == letter35 and f'{letter33}{letter35}' not in scramble:
-                color35 = 'b'
-            if letter34 == letter35 and f'{letter34}{letter35}' not in scramble:
-                color35 = 'b'
+            if color32 == 'g':
+                if letter31 == letter32 and f'{letter31}{letter32}' not in scramble:
+                    color31 = 'b'
+            else:
+                if letter31 == letter32 and f'{letter31}{letter32}' not in scramble:
+                    color32 = 'b'
+                    
+            if color33 == 'g':
+                if letter31 == letter33 and f'{letter31}{letter33}' not in scramble:
+                    color31 = 'b'
+                if letter32 == letter33 and f'{letter32}{letter33}' not in scramble:
+                    color32 = 'b'
+            else:
+                if letter31 == letter33 and f'{letter31}{letter33}' not in scramble:
+                    color33 = 'b'
+                if letter32 == letter33 and f'{letter32}{letter33}' not in scramble:
+                    color33 = 'b'
+            
+            if color34 == 'g':
+                if letter31 == letter34 and f'{letter31}{letter34}' not in scramble:
+                    color31 = 'b'
+                if letter32 == letter34 and f'{letter32}{letter34}' not in scramble:
+                    color32 = 'b'
+                if letter33 == letter34 and f'{letter33}{letter34}' not in scramble:
+                    color33 = 'b'
+            else:
+                if letter31 == letter34 and f'{letter31}{letter34}' not in scramble:
+                    color34 = 'b'
+                if letter32 == letter34 and f'{letter32}{letter34}' not in scramble:
+                    color34 = 'b'
+                if letter33 == letter34 and f'{letter33}{letter34}' not in scramble:
+                    color34 = 'b'
+            
+            if color35 == 'g':
+                if letter31 == letter35 and f'{letter31}{letter35}' not in scramble:
+                    color31 = 'b'
+                if letter32 == letter35 and f'{letter32}{letter35}' not in scramble:
+                    color32 = 'b'  
+                if letter33 == letter35 and f'{letter33}{letter35}' not in scramble:
+                    color33 = 'b'
+                if letter34 == letter35 and f'{letter34}{letter35}' not in scramble:
+                    color34 = 'b'
+            else:       
+                if letter31 == letter35 and f'{letter31}{letter35}' not in scramble:
+                    color35 = 'b'
+                if letter32 == letter35 and f'{letter32}{letter35}' not in scramble:
+                    color35 = 'b'
+                if letter33 == letter35 and f'{letter33}{letter35}' not in scramble:
+                    color35 = 'b'
+                if letter34 == letter35 and f'{letter34}{letter35}' not in scramble:
+                    color35 = 'b'
+            if f'{letter31}{letter32}{letter33}{letter34}{letter35}' == word:
+                return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, seventh=True,
+                                 letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
+                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5
+                                 , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
+                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
+                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,)
                 
                 
             
@@ -378,7 +488,8 @@ def fourth():
                                  , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
                                  color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
                                  color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
-                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,)
+                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
+                                 value41=letter41, value42=letter42, value43=letter43, value44=letter44, value45=letter45)
 
         else:  
             if letter41 in word and letter41 == word[0]:
@@ -420,26 +531,70 @@ def fourth():
             scramble.sort()
             scramble = read.string(scramble)
             
-            if letter41 == letter42 and f'{letter41}{letter42}' not in scramble:
-                color42 = 'b'
-            if letter41 == letter43 and f'{letter41}{letter43}' not in scramble:
-                color43 = 'b'
-            if letter41 == letter44 and f'{letter41}{letter44}' not in scramble:
-                color44 = 'b'
-            if letter41 == letter45 and f'{letter41}{letter45}' not in scramble:
-                color45 = 'b'
-            if letter42 == letter43 and f'{letter42}{letter43}' not in scramble:
-                color43 = 'b'
-            if letter42 == letter44 and f'{letter42}{letter44}' not in scramble:
-                color44 = 'b'
-            if letter42 == letter45 and f'{letter42}{letter45}' not in scramble:
-                color45 = 'b'
-            if letter43 == letter44 and f'{letter43}{letter44}' not in scramble:
-                color44 = 'b'
-            if letter43 == letter45 and f'{letter43}{letter45}' not in scramble:
-                color45 = 'b'
-            if letter44 == letter45 and f'{letter44}{letter45}' not in scramble:
-                color45 = 'b'
+            if color42 == 'g':
+                if letter41 == letter42 and f'{letter41}{letter42}' not in scramble:
+                    color41 = 'b'
+            else:
+                if letter41 == letter42 and f'{letter41}{letter42}' not in scramble:
+                    color42 = 'b'
+                    
+            if color43 == 'g':
+                if letter41 == letter43 and f'{letter41}{letter43}' not in scramble:
+                    color41 = 'b'
+                if letter42 == letter43 and f'{letter42}{letter43}' not in scramble:
+                    color42 = 'b'
+            else:
+                if letter41 == letter43 and f'{letter41}{letter43}' not in scramble:
+                    color43 = 'b'
+                if letter42 == letter43 and f'{letter42}{letter43}' not in scramble:
+                    color43 = 'b'
+            
+            if color44 == 'g':
+                if letter41 == letter44 and f'{letter41}{letter44}' not in scramble:
+                    color41 = 'b'
+                if letter42 == letter44 and f'{letter42}{letter44}' not in scramble:
+                    color42 = 'b'
+                if letter43 == letter44 and f'{letter43}{letter44}' not in scramble:
+                    color43 = 'b'
+            else:
+                if letter41 == letter44 and f'{letter41}{letter44}' not in scramble:
+                    color44 = 'b'
+                if letter42 == letter44 and f'{letter42}{letter44}' not in scramble:
+                    color44 = 'b'
+                if letter43 == letter44 and f'{letter43}{letter44}' not in scramble:
+                    color44 = 'b'
+            
+            if color45 == 'g':
+                if letter41 == letter45 and f'{letter41}{letter45}' not in scramble:
+                    color41 = 'b'
+                if letter42 == letter45 and f'{letter42}{letter45}' not in scramble:
+                    color42 = 'b'  
+                if letter43 == letter45 and f'{letter43}{letter45}' not in scramble:
+                    color43 = 'b'
+                if letter44 == letter45 and f'{letter44}{letter45}' not in scramble:
+                    color44 = 'b'
+            else:       
+                if letter41 == letter45 and f'{letter41}{letter45}' not in scramble:
+                    color45 = 'b'
+                if letter42 == letter45 and f'{letter42}{letter45}' not in scramble:
+                    color45 = 'b'
+                if letter43 == letter45 and f'{letter43}{letter45}' not in scramble:
+                    color45 = 'b'
+                if letter44 == letter45 and f'{letter44}{letter45}' not in scramble:
+                    color45 = 'b'
+                    
+            if f'{letter41}{letter42}{letter43}{letter44}{letter45}' == word:
+                return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, seventh=True,
+                                 letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45
+                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5, 
+                                 letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
+                                 , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
+                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
+                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
+                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45)
+                    
+            
                 
             
             return flask.redirect('/fifth')
@@ -492,7 +647,8 @@ def fifth():
                                  color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
                                  color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
                                  color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
-                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,)
+                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,
+                                 value51=letter51, value52=letter52, value53=letter53, value54=letter54, value55=letter55)
         else:
             if letter51 in word and letter51 == word[0]:
                 color51 = 'g'
@@ -533,26 +689,70 @@ def fifth():
             scramble.sort()
             scramble = read.string(scramble)
             
-            if letter51 == letter52 and f'{letter51}{letter52}' not in scramble:
-                color52 = 'b'
-            if letter51 == letter53 and f'{letter51}{letter53}' not in scramble:
-                color53 = 'b'
-            if letter51 == letter54 and f'{letter51}{letter54}' not in scramble:
-                color54 = 'b'
-            if letter51 == letter55 and f'{letter51}{letter55}' not in scramble:
-                color55 = 'b'
-            if letter52 == letter53 and f'{letter52}{letter53}' not in scramble:
-                color53 = 'b'
-            if letter52 == letter54 and f'{letter52}{letter54}' not in scramble:
-                color54 = 'b'
-            if letter52 == letter55 and f'{letter52}{letter55}' not in scramble:
-                color55 = 'b'
-            if letter53 == letter54 and f'{letter53}{letter54}' not in scramble:
-                color54 = 'b'
-            if letter53 == letter55 and f'{letter53}{letter55}' not in scramble:
-                color55 = 'b'
-            if letter54 == letter55 and f'{letter54}{letter55}' not in scramble:
-                color55 = 'b'
+            if color52 == 'g':
+                if letter51 == letter52 and f'{letter51}{letter52}' not in scramble:
+                    color51 = 'b'
+            else:
+                if letter51 == letter52 and f'{letter51}{letter52}' not in scramble:
+                    color52 = 'b'
+                    
+            if color53 == 'g':
+                if letter51 == letter53 and f'{letter51}{letter53}' not in scramble:
+                    color51 = 'b'
+                if letter52 == letter53 and f'{letter52}{letter53}' not in scramble:
+                    color52 = 'b'
+            else:
+                if letter51 == letter53 and f'{letter51}{letter53}' not in scramble:
+                    color53 = 'b'
+                if letter52 == letter53 and f'{letter52}{letter53}' not in scramble:
+                    color53 = 'b'
+            
+            if color54 == 'g':
+                if letter51 == letter54 and f'{letter51}{letter54}' not in scramble:
+                    color51 = 'b'
+                if letter52 == letter54 and f'{letter52}{letter54}' not in scramble:
+                    color52 = 'b'
+                if letter53 == letter54 and f'{letter53}{letter54}' not in scramble:
+                    color53 = 'b'
+            else:
+                if letter51 == letter54 and f'{letter51}{letter54}' not in scramble:
+                    color54 = 'b'
+                if letter52 == letter54 and f'{letter52}{letter54}' not in scramble:
+                    color54 = 'b'
+                if letter53 == letter54 and f'{letter53}{letter54}' not in scramble:
+                    color54 = 'b'
+            
+            if color55 == 'g':
+                if letter51 == letter55 and f'{letter51}{letter55}' not in scramble:
+                    color51 = 'b'
+                if letter52 == letter55 and f'{letter52}{letter55}' not in scramble:
+                    color52 = 'b'  
+                if letter53 == letter55 and f'{letter53}{letter55}' not in scramble:
+                    color53 = 'b'
+                if letter54 == letter55 and f'{letter54}{letter55}' not in scramble:
+                    color54 = 'b'
+            else:       
+                if letter51 == letter55 and f'{letter51}{letter55}' not in scramble:
+                    color55 = 'b'
+                if letter52 == letter55 and f'{letter52}{letter55}' not in scramble:
+                    color55 = 'b'
+                if letter53 == letter55 and f'{letter53}{letter55}' not in scramble:
+                    color55 = 'b'
+                if letter54 == letter55 and f'{letter54}{letter55}' not in scramble:
+                    color55 = 'b'
+                    
+            if f'{letter51}{letter52}{letter53}{letter54}{letter55}' == word:
+                return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, sixth6=True, seventh=True,
+                                 letter51=letter51, letter52=letter52, letter53=letter53, letter54=letter54, letter55=letter55
+                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5
+                                 , letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45,
+                                 letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
+                                 , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
+                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
+                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
+                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,
+                                 color51=color51, color52=color52, color53=color53, color54=color54, color55=color55,)
                 
             
 
@@ -606,7 +806,8 @@ def sixth():
                                  color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
                                  color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
                                  color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,
-                                 color51=color51, color52=color52, color53=color53, color54=color54, color55=color55,)
+                                 color51=color51, color52=color52, color53=color53, color54=color54, color55=color55,
+                                 value61=letter61, value62=letter62, value63=letter63, value64=letter64, value65=letter65)
         else:
             if letter61 in word and letter61 == word[0]:
                 color61 = 'g'
@@ -647,26 +848,72 @@ def sixth():
             scramble.sort()
             scramble = read.string(scramble)
             
-            if letter61 == letter62 and f'{letter61}{letter62}' not in scramble:
-                color62 = 'b'
-            if letter61 == letter63 and f'{letter61}{letter63}' not in scramble:
-                color63 = 'b'
-            if letter61 == letter64 and f'{letter61}{letter64}' not in scramble:
-                color64 = 'b'
-            if letter61 == letter65 and f'{letter61}{letter65}' not in scramble:
-                color65 = 'b'
-            if letter62 == letter63 and f'{letter62}{letter63}' not in scramble:
-                color63 = 'b'
-            if letter62 == letter64 and f'{letter62}{letter64}' not in scramble:
-                color64 = 'b'
-            if letter62 == letter65 and f'{letter62}{letter65}' not in scramble:
-                color65 = 'b'
-            if letter63 == letter64 and f'{letter63}{letter64}' not in scramble:
-                color64 = 'b'
-            if letter63 == letter65 and f'{letter63}{letter65}' not in scramble:
-                color65 = 'b'
-            if letter64 == letter65 and f'{letter64}{letter65}' not in scramble:
-                color65 = 'b'
+            if color62 == 'g':
+                if letter61 == letter62 and f'{letter61}{letter62}' not in scramble:
+                    color61 = 'b'
+            else:
+                if letter61 == letter62 and f'{letter61}{letter62}' not in scramble:
+                    color62 = 'b'
+                    
+            if color63 == 'g':
+                if letter61 == letter63 and f'{letter61}{letter63}' not in scramble:
+                    color61 = 'b'
+                if letter62 == letter63 and f'{letter62}{letter63}' not in scramble:
+                    color62 = 'b'
+            else:
+                if letter61 == letter63 and f'{letter61}{letter63}' not in scramble:
+                    color63 = 'b'
+                if letter62 == letter63 and f'{letter62}{letter63}' not in scramble:
+                    color63 = 'b'
+            
+            if color64 == 'g':
+                if letter61 == letter64 and f'{letter61}{letter64}' not in scramble:
+                    color61 = 'b'
+                if letter62 == letter64 and f'{letter62}{letter64}' not in scramble:
+                    color62 = 'b'
+                if letter63 == letter64 and f'{letter63}{letter64}' not in scramble:
+                    color63 = 'b'
+            else:
+                if letter61 == letter64 and f'{letter61}{letter64}' not in scramble:
+                    color64 = 'b'
+                if letter62 == letter64 and f'{letter62}{letter64}' not in scramble:
+                    color64 = 'b'
+                if letter63 == letter64 and f'{letter63}{letter64}' not in scramble:
+                    color64 = 'b'
+            
+            if color65 == 'g':
+                if letter61 == letter65 and f'{letter61}{letter65}' not in scramble:
+                    color61 = 'b'
+                if letter62 == letter65 and f'{letter62}{letter65}' not in scramble:
+                    color62 = 'b'  
+                if letter63 == letter65 and f'{letter63}{letter65}' not in scramble:
+                    color63 = 'b'
+                if letter64 == letter65 and f'{letter64}{letter65}' not in scramble:
+                    color64 = 'b'
+            else:       
+                if letter61 == letter65 and f'{letter61}{letter65}' not in scramble:
+                    color65 = 'b'
+                if letter62 == letter65 and f'{letter62}{letter65}' not in scramble:
+                    color65 = 'b'
+                if letter63 == letter65 and f'{letter63}{letter65}' not in scramble:
+                    color65 = 'b'
+                if letter64 == letter65 and f'{letter64}{letter65}' not in scramble:
+                    color65 = 'b'
+                    
+            if f'{letter61}{letter62}{letter63}{letter64}{letter65}' == word:
+                return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True, sixth6=True, seventh7=True, seventh=True,
+                                 letter51=letter51, letter52=letter52, letter53=letter53, letter54=letter54, letter55=letter55,
+                                 letter61=letter61, letter62=letter62, letter63=letter63, letter64=letter64, letter65=letter65
+                                 , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5
+                                 , letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45,
+                                 letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
+                                 , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
+                                 color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
+                                 color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
+                                 color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
+                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,
+                                 color51=color51, color52=color52, color53=color53, color54=color54, color55=color55,
+                                 color61=color61, color62=color62, color63=color63, color64=color64, color65=color65)
 
             return flask.redirect('/winning')
         
@@ -697,7 +944,7 @@ def winning():
                                  color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
                                  color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,
                                  color51=color51, color52=color52, color53=color53, color54=color54, color55=color55,
-                                 color61=color61, color62=color62, color63=color63, color64=color64, color65=color65,)
+                                 color61=color61, color62=color62, color63=color63, color64=color64, color65=color65, sad=True, word=word)
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
