@@ -748,7 +748,8 @@ def fifth():
                                  color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
                                  color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
                                  color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
-                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45)
+                                 color41=color41, color42=color42, color43=color43, color44=color44, color45=color45,
+                                 )
 
 @app.route('/sixth', methods=['GET', 'POST'])
 def sixth():
@@ -779,11 +780,12 @@ def sixth():
         letter64 = letter64.lower()
         letter65 = letter65.lower()
         if f'{letter61}{letter62}{letter63}{letter64}{letter65}' not in word_list:
-            return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=True, sixth=False, second2=True, third3=True, fourth4=True, fifth5=True,
+            return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=True, second2=True, third3=True, fourth4=True, fifth5=True, sixth6=True,
                                  letter41=letter41, letter42=letter42, letter43=letter43, letter44=letter44, letter45=letter45
                                  , letter11=letter1, letter12=letter2, letter13=letter3, letter14=letter4, letter15=letter5, 
                                  letter31=letter31, letter32=letter32, letter33=letter33, letter34=letter34, letter35=letter35
                                  , letter21=letter21, letter22=letter22, letter23=letter23, letter24=letter24, letter25=letter25,
+                                 letter51=letter51, letter52=letter52, letter53=letter53, letter54=letter54, letter55=letter55,
                                  color11=color1, color12=color2, color13=color3, color14=color4, color15=color5,
                                  color21=color21, color22=color22, color23=color23, color24=color24, color25=color25,
                                  color31=color31, color32=color32, color33=color33, color34=color34, color35=color35,
@@ -887,7 +889,7 @@ def sixth():
                 winning = 6
                 return flask.redirect('/winnings', code=302)
 
-            return flask.redirect('/winning')
+            return flask.redirect('/winning', code=302)
         
     return flask.render_template('index.html', first=False, second=False, third=False, fourth=False, fifth=False, sixth=True, second2=True, third3=True, fourth4=True, fifth5=True, sixth6=True,
                                  letter51=letter51, letter52=letter52, letter53=letter53, letter54=letter54, letter55=letter55
