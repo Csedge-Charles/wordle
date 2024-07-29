@@ -108,6 +108,11 @@
     transform: translate(500px, -1450px);
 }
 
+#back{
+    width:80px;
+    transform: translate(-200px, -2150px);
+}
+
 #whole{
     transform: translate(0px, -10px);
 }
